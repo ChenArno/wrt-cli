@@ -2,7 +2,6 @@
 
 const program = require('commander')
 const download = require('download-git-repo')
-const pj = require('./getPackJson')
 const ora = require('ora')
 const InputJs = require('./input')
 const fs = require('fs')
@@ -10,7 +9,7 @@ const handlebars = require("handlebars")
 const symbols = require("log-symbols")
 const chalk = require("chalk")
 
-program.version(pj.version, '-v, --version')
+program.version('1.0.2', '-v, --version')
 
 const inputjs = new InputJs()
 program.command('init <name>').description('初始化项目模板').action(name => {
