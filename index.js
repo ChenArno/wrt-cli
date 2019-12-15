@@ -9,7 +9,7 @@ const handlebars = require("handlebars")
 const symbols = require("log-symbols")
 const chalk = require("chalk")
 
-program.version('1.0.1', '-v, --version')
+program.version('1.0.4', '-v, --version')
 
 const inputjs = new InputJs()
 program.command('init <name>').description('初始化项目模板').action((templateNane, projectNane) => {

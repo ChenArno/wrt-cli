@@ -1,6 +1,6 @@
 {
   "name": "wrt-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "基于webpack构建的react的typescript",
   "main": "index.js",
   "scripts": {
