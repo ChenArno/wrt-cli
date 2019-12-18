@@ -28,7 +28,11 @@ class InputJs {
       message: '请输入项目名称',
       default: name,
       validate: (val) => {
-        return /[a-z_-]/.test(val)
+        // 开头小写字母
+        if (/^[a-z]+[a-z_-]/.test(val)) {
+          return true
+        }
+        return '请注意命名规则'
       }
     }, {
       type: 'input',
