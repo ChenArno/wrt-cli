@@ -8,22 +8,24 @@ const fs = require('fs')
 const handlebars = require("handlebars")
 const symbols = require("log-symbols")
 const chalk = require("chalk")
+const shelljs = require('shelljs')
 
-program.version('1.0.5', '-v, --version')
+program.version('1.0.6', '-v, --version')
 
-const inputjs = new InputJs()
+
 program.command('init <name>').description('初始化项目模板').action((templateNane, projectNane) => {
-  console.log(templateNane)
   if (fs.existsSync(templateNane)) {
     // 错误提示项目已存在，避免覆盖原有项目
     console.log(symbols.error, chalk.red("项目已存在"));
     return;
   }
+  const inputjs = new InputJs(templateNane)
   inputjs.jiexi().then(answers => {
     const url = 'https://github.com:ChenArno/webpack-react#master'
     // 根据模板名下载对应的模板到本地并起名projectName
     const spinner = ora('正在下载模板...')
     spinner.start()
+    // return
     download(url, templateNane, {
       clone: true
     }, (err) => {
@@ -38,6 +40,13 @@ program.command('init <name>').description('初始化项目模板').action((temp
         const content = fs.readFileSync(fileName, 'utf8')
         const result = handlebars.compile(content)(answers)
         fs.writeFileSync(fileName, result)
+        shelljs.cd(templateNane)
+        if (answers.pulgin.length > 0) {
+          answers.pulgin.forEach(v => {
+            shelljs.exec(`${answers.devle} add ${v}`)
+          })
+        }
+        shelljs.exec(`${answers.devle} install`)
       }
     })
   })
