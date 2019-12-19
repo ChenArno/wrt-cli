@@ -10,12 +10,12 @@ const symbols = require("log-symbols")
 const chalk = require("chalk")
 const shelljs = require('shelljs')
 
-const getVer = () => {
-  const content = fs.readFileSync('./package.json', 'utf8')
-  const version = JSON.parse(content).version
-  return version
-}
-program.version(getVer(), '-v, --version')
+// const getVer = () => {
+//   const content = fs.readFileSync('./package.json', 'utf8')
+//   const version = JSON.parse(content).version
+//   return version
+// }
+program.version('1.0.8', '-v, --version')
 
 program.command('init <name>').description('初始化项目模板').action((templateNane, projectNane) => {
   if (fs.existsSync(templateNane)) {
