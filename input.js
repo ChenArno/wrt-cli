@@ -4,7 +4,7 @@
  * @Author: chenArno
  * @Date: 2019-12-13 16:22:04
  * @LastEditors  : chenArno
- * @LastEditTime : 2019-12-18 13:28:19
+ * @LastEditTime : 2019-12-24 09:47:05
  */
 const inquirer = require('inquirer')
 
@@ -57,7 +57,8 @@ class InputJs {
       message: '选择需要的插件',
       name: 'pulgin',
       choices: [
-        'react-router-dom'
+        'react-router-dom',
+        'react-redux redux'
       ],
       // pageSize: 2 // 设置行数
     }];

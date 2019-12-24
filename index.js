@@ -15,7 +15,7 @@ const shelljs = require('shelljs')
 //   const version = JSON.parse(content).version
 //   return version
 // }
-program.version('1.0.8', '-v, --version')
+program.version('1.0.9', '-v, --version')
 
 program.command('init <name>').description('初始化项目模板').action((templateNane, projectNane) => {
   if (fs.existsSync(templateNane)) {
