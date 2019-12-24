@@ -15,7 +15,7 @@ const shelljs = require('shelljs')
 //   const version = JSON.parse(content).version
 //   return version
 // }
-program.version('1.0.9', '-v, --version')
+program.version('1.0.10', '-v, --version')
 
 program.command('init <name>').description('初始化项目模板').action((templateNane, projectNane) => {
   if (fs.existsSync(templateNane)) {
@@ -58,7 +58,7 @@ program.command('init <name>').description('初始化项目模板').action((temp
 
 program.command('list').description('查看所以可用的模板').action(() => {
   console.log('模板的列表')
-  console.log('webpack-react')
+  console.log(`parking  [https://github.com/ChenArno/Parking]`)
 })
 
 // 解析命令行
