@@ -3,8 +3,8 @@
  * @version:
  * @Author: chenArno
  * @Date: 2019-12-13 16:22:04
- * @LastEditors  : chenArno
- * @LastEditTime : 2020-01-09 14:24:26
+ * @LastEditors: chenArno
+ * @LastEditTime: 2020-02-26 16:05:21
  */
 const inquirer = require('inquirer')
 
@@ -62,7 +62,7 @@ class InputJs {
         type: 'checkbox',
         message: '选择需要的插件',
         name: 'pulgin',
-        choices: ['react-router-dom', 'react-redux redux', 'axios']
+        choices: ['react-router-dom', 'react-redux redux @types/react-redux', 'axios']
         // pageSize: 2 // 设置行数
       }
     ]
