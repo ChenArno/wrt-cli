@@ -4,23 +4,12 @@
  * @Author: chenArno
  * @Date: 2019-12-13 16:22:04
  * @LastEditors: chenArno
- * @LastEditTime: 2020-02-26 16:05:21
+ * @LastEditTime: 2020-05-20 10:29:35
  */
 const inquirer = require('inquirer')
 
 class InputJs {
   constructor(name) {
-    // {
-    //   type: 'input',
-    //   name: 'name',
-    //   message: '请输入项目名称',
-    //   validate: function (val) {
-    //     if (val === '') {
-    //       return '项目名称不能为空'
-    //     }
-    //     return true
-    //   }
-    // },
     this.name = name
     this.lists = [
       {
@@ -51,6 +40,15 @@ class InputJs {
         type: 'input',
         name: 'author',
         message: '请输入作者名称'
+      },
+      {
+        type: 'list',
+        message: '请选择模板地址',
+        name: 'giturl',
+        choices: [
+          'https://github.com:ChenArno/webpack-react#master',
+          'https://github.com:ChenArno/create-react#master'
+        ]
       },
       {
         type: 'list',

@@ -9,13 +9,11 @@ const handlebars = require("handlebars")
 const symbols = require("log-symbols")
 const chalk = require("chalk")
 const shelljs = require('shelljs')
+// const tempLists = require('./modules/list')
 
-// const getVer = () => {
-//   const content = fs.readFileSync('./package.json', 'utf8')
-//   const version = JSON.parse(content).version
-//   return version
-// }
-program.version('1.0.10', '-v, --version')
+const { version } = require('./package.json')
+
+program.version(version, '-v, --version')
 
 program.command('init <name>').description('初始化项目模板').action((templateNane, projectNane) => {
   if (fs.existsSync(templateNane)) {
@@ -25,7 +23,7 @@ program.command('init <name>').description('初始化项目模板').action((temp
   }
   const inputjs = new InputJs(templateNane)
   inputjs.jiexi().then(answers => {
-    const url = 'https://github.com:ChenArno/webpack-react#master'
+    const url = answers.giturl
     // 根据模板名下载对应的模板到本地并起名projectName
     const spinner = ora('正在下载模板...')
     spinner.start()
@@ -56,10 +54,16 @@ program.command('init <name>').description('初始化项目模板').action((temp
   })
 })
 
-program.command('list').description('查看所以可用的模板').action(() => {
-  console.log('模板的列表')
-  console.log(`parking  [https://github.com/ChenArno/Parking]`)
-})
+// program.command('list').description('查看所以可用的模板').action((templateNane) => {
+//   if (fs.existsSync(templateNane)) {
+//     // 错误提示项目已存在，避免覆盖原有项目
+//     console.log(symbols.error, chalk.red("项目已存在"));
+//     return;
+//   }
+//   tempLists.then(answers => {
+//     console.log(answers)
+//   })
+// })
 
 // 解析命令行
 program.parse(process.argv);
