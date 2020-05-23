@@ -4,7 +4,7 @@
  * @Author: chenArno
  * @Date: 2019-12-14 13:43:57
  * @LastEditors: chenArno
- * @LastEditTime: 2020-05-20 09:15:15
+ * @LastEditTime: 2020-05-23 17:56:53
  -->
 
 ## wrt-cli
@@ -27,3 +27,11 @@ npm i wrt-cli -g
 ### npm link
 
 即可把 scion 命令绑定到全局，以后就可以直接以 scion 作为命令开头而无需敲入长长的 node scion 之类的命令了
+
+## npm publish
+
+切回源
+npm config set registry https://registry.npmjs.org/
+
+国内源
+npm config set registry https://registry.npm.taobao.org/
